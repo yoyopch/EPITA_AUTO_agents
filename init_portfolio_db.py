@@ -49,7 +49,10 @@ def creer_tables(cur):
 
 
 def inserer_donnees_demo(cur):
-    """Insère des positions de démonstration."""
+    """Insère des positions de démonstration (vide les données demo avant pour éviter les doublons)."""
+    cur.execute("DELETE FROM portfolio_transactions WHERE utilisateur = 'demo'")
+    cur.execute("DELETE FROM portfolio_positions WHERE utilisateur = 'demo'")
+
     positions = [
         ("demo", "AAPL", 10, 150.00, "2024-01-15"),
         ("demo", "MSFT", 5, 380.00, "2024-02-20"),
@@ -59,8 +62,7 @@ def inserer_donnees_demo(cur):
     for p in positions:
         cur.execute("""
             INSERT INTO portfolio_positions (utilisateur, symbole, quantite, prix_achat, date_achat)
-            VALUES (%s, %s, %s, %s, %s)
-            ON CONFLICT DO NOTHING;
+            VALUES (%s, %s, %s, %s, %s);
         """, p)
 
     transactions = [
@@ -72,8 +74,7 @@ def inserer_donnees_demo(cur):
     for t in transactions:
         cur.execute("""
             INSERT INTO portfolio_transactions (utilisateur, symbole, type_operation, quantite, prix)
-            VALUES (%s, %s, %s, %s, %s)
-            ON CONFLICT DO NOTHING;
+            VALUES (%s, %s, %s, %s, %s);
         """, t)
 
 
