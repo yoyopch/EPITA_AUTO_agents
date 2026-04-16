@@ -1,0 +1,19 @@
+langchain-core==1.2.14
+langchain-openai==1.1.10
+langchain-community==0.4.1
+langchain-classic==1.0.1
+python-dotenv==1.2.1
+requests
+# A1 — PostgreSQL
+psycopg2-binary
+# A2, B1 — Cours boursiers réels
+yfinance
+# A3 — Recherche web
+tavily-python
+# B2 — Exécution Python
+langchain-experimental
+# C1 — Interface web
+streamlit
+# D1 — API REST
+fastapi
+uvicorn
