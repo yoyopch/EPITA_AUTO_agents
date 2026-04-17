@@ -1,5 +1,7 @@
 # Agent LangChain — Assistant Financier
 
+Yohann PECH APPING2 DEV2_1
+
 Projet de fin de TP — Agent intelligent basé sur LangChain avec des outils financiers, une base de données PostgreSQL, une interface web Streamlit et une API REST.
 
 ## Prérequis
